@@ -19,5 +19,6 @@ CG_EXTERN void MNContextDrawLine(CGContextRef c, CGPoint start, CGPoint end, CGC
 @property(nonatomic,strong) UIColor *separatorColor;
 
 @property(nonatomic,strong,readonly) UILabel *titleLabel;
+@property(nonatomic,assign,readwrite) BOOL drawBottomSeparator;
 
 @end

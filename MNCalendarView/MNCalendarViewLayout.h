@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MNCalendarViewLayout : UICollectionViewFlowLayout
-
+-(instancetype)initWithHeaderHeight:(CGFloat)headerHeight;
+@property (nonatomic) CGFloat headerHeight;
 @end

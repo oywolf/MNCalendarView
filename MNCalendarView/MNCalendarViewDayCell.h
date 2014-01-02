@@ -14,9 +14,11 @@ extern NSString *const MNCalendarViewDayCellIdentifier;
 
 @property(nonatomic,strong,readonly) NSDate *date;
 @property(nonatomic,strong,readonly) NSDate *month;
-
-- (void)setDate:(NSDate *)date
-          month:(NSDate *)month
-       calendar:(NSCalendar *)calendar;
+/// Array of UIColor
+@property(nonatomic,strong,readonly) NSArray *dotColors;
+/// Array of MNAnnotation
+@property(nonatomic,strong,readonly) NSArray *allDayAnnotations;
+/// This a cell which represents a date from the previous/next month.
+@property(nonatomic,readonly) BOOL psuedoDate;
 
 @end

@@ -10,6 +10,13 @@
 
 @implementation MNCalendarViewLayout
 
+- (instancetype)initWithHeaderHeight:(CGFloat)headerHeight {
+    if (self = [self init]) {
+        self.headerHeight = headerHeight;
+        self.headerReferenceSize = CGSizeMake(0.f, headerHeight);
+    }
+    return self;
+}
 - (id)init {
   if (self = [super init]) {
     self.sectionInset = UIEdgeInsetsZero;
@@ -47,7 +54,8 @@
   }
 
   if (targetLayoutAttributes) {
-    return targetLayoutAttributes.frame.origin;
+      CGPoint origin = targetLayoutAttributes.frame.origin;
+      return origin;
   }
 
   return CGPointMake(proposedContentOffset.x, proposedContentOffset.y);

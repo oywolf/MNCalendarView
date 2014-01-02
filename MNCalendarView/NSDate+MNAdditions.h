@@ -19,3 +19,13 @@
 - (instancetype)mn_dateWithDay:(NSUInteger)day calendar:(NSCalendar *)calendar;
 
 @end
+
+@interface NSDate (MNAdditional)
++ (NSDate *)mn_dateFromDate:(NSDate *)date hour:(NSInteger)hour minute:(NSInteger)minute;
++ (NSDate *)mn_dateFromDay:(NSInteger)day month:(NSInteger)month year:(NSInteger)year;
++ (NSDate *)mn_dateFromDay:(NSInteger)day month:(NSInteger)month year:(NSInteger)year hour:(NSInteger)hour minute:(NSInteger)minute;
++ (NSDate *)mn_dateWithNoTime:(NSDate *)dateTime;
++ (NSDate *)mn_dateWithNoTime:(NSDate *)dateTime middleDay:(BOOL)middle;
+- (NSUInteger)mn_numberOfDaysInMonth;
+- (BOOL)mn_isEqualToDay:(NSDate *)day;
+@end

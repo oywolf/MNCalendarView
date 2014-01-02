@@ -20,10 +20,11 @@ NSString *const MNCalendarHeaderViewIdentifier = @"MNCalendarHeaderViewIdentifie
 
 - (id)initWithFrame:(CGRect)frame {
   if (self = [super initWithFrame:frame]) {
-    self.titleLabel = [[UILabel alloc] initWithFrame:self.bounds];
+      UIFont *font = [UIFont systemFontOfSize:16.f];
+    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.bounds)-[font lineHeight], CGRectGetWidth(self.bounds), [font lineHeight])];
     self.titleLabel.backgroundColor = UIColor.clearColor;
-    self.titleLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-    self.titleLabel.font = [UIFont systemFontOfSize:16.f];
+    self.titleLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin;
+    self.titleLabel.font = font;
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
 
     [self addSubview:self.titleLabel];

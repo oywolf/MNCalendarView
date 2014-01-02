@@ -33,6 +33,10 @@
 @property(nonatomic,strong) Class weekdayCellClass;
 @property(nonatomic,strong) Class dayCellClass;
 
+/// Psuedo dates are dates from the previous/next month.
+@property(nonatomic) BOOL showsPsuedoDates;
+@property(nonatomic) BOOL selectConcreteDateOnPsuedoDateSelection;
+
 - (void)reloadData;
 - (void)registerUICollectionViewClasses; 
 
@@ -42,7 +46,11 @@
 
 @optional
 
-- (BOOL)calendarView:(MNCalendarView *)calendarView shouldSelectDate:(NSDate *)date;
+- (BOOL)calendarView:(MNCalendarView *)calendarView dateEnabled:(NSDate *)date;
 - (void)calendarView:(MNCalendarView *)calendarView didSelectDate:(NSDate *)date;
+/// @returns Array of UIColor objects associated with @a date.
+- (NSArray *)calendarView:(MNCalendarView *)calendarView dotColorsForDate:(NSDate *)date;
+/// @returns Array of MNAnnotation objects associated with @a date.
+- (NSArray *)calendarView:(MNCalendarView *)calendarView allDayAnnotationsForDate:(NSDate *)date;
 
 @end

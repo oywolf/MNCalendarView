@@ -8,15 +8,15 @@
 
 #import "MNCalendarViewCell.h"
 
-void MNContextDrawLine(CGContextRef c, CGPoint start, CGPoint end, CGColorRef color, CGFloat lineWidth) {
-  CGContextSetAllowsAntialiasing(c, false);
-  CGContextSetStrokeColorWithColor(c, color);
-  CGContextSetLineWidth(c, lineWidth);
-  CGContextMoveToPoint(c, start.x, start.y - (lineWidth/2.f));
-  CGContextAddLineToPoint(c, end.x, end.y - (lineWidth/2.f));
-  CGContextStrokePath(c);
-  CGContextSetAllowsAntialiasing(c, true);
-}
+//void MNContextDrawLine(CGContextRef c, CGPoint start, CGPoint end, CGColorRef color, CGFloat lineWidth) {
+//  CGContextSetAllowsAntialiasing(c, false);
+//  CGContextSetStrokeColorWithColor(c, color);
+//  CGContextSetLineWidth(c, lineWidth);
+//  CGContextMoveToPoint(c, start.x, start.y - (lineWidth/2.f));
+//  CGContextAddLineToPoint(c, end.x, end.y - (lineWidth/2.f));
+//  CGContextStrokePath(c);
+//  CGContextSetAllowsAntialiasing(c, true);
+//}
 
 NSString *const MNCalendarViewCellIdentifier = @"MNCalendarViewCellIdentifier";
 
@@ -37,7 +37,7 @@ NSString *const MNCalendarViewCellIdentifier = @"MNCalendarViewCellIdentifier";
     self.titleLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
     self.titleLabel.font = [UIFont systemFontOfSize:14.f];
     self.titleLabel.textColor = [UIColor darkTextColor];
-    self.titleLabel.highlightedTextColor = [UIColor whiteColor];
+    //self.titleLabel.highlightedTextColor = [UIColor whiteColor];
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
     self.titleLabel.userInteractionEnabled = NO;
     self.titleLabel.backgroundColor = [UIColor clearColor];
@@ -46,7 +46,7 @@ NSString *const MNCalendarViewCellIdentifier = @"MNCalendarViewCellIdentifier";
     
     self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.bounds];
     self.selectedBackgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-    self.selectedBackgroundView.backgroundColor = [UIColor colorWithRed:0.23f green:0.61f blue:1.f alpha:1.f];
+    self.selectedBackgroundView.backgroundColor = [UIColor colorWithWhite:0.8 alpha:.2];
   }
   return self;
 }
@@ -59,6 +59,9 @@ NSString *const MNCalendarViewCellIdentifier = @"MNCalendarViewCellIdentifier";
 }
 
 - (void)drawRect:(CGRect)rect {
+    if (!self.drawBottomSeparator) {
+        return;
+    }
   CGContextRef context = UIGraphicsGetCurrentContext();
   
   CGColorRef separatorColor = self.separatorColor.CGColor;
